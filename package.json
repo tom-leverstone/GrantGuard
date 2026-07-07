@@ -1,0 +1,14 @@
+{
+  "name": "grantguard",
+  "private": true,
+  "scripts": {
+    "check": "tsc --noEmit",
+    "fmt": "oxfmt grantguard/web",
+    "fmt:check": "oxfmt --check grantguard/web"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.56.0",
+    "typescript": "rc"
+  },
+  "packageManager": "pnpm@11.9.0"
+}

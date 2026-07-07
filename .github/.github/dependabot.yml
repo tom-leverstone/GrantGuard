@@ -1,0 +1,10 @@
+version: 2
+updates:
+  # Keep the pinned GitHub Actions (SHAs) up to date.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci
+# No application package ecosystems: GrantGuard has zero runtime dependencies.

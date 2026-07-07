@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "noEmit": true,
+    "allowJs": true,
+    "strict": false,
+    "target": "ES2024",
+    "module": "nodenext"
+  },
+  "include": ["grantguard/web/**/*.js"]
+}

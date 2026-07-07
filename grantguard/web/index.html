@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GrantGuard</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="appbar">
+        <span class="brand">GrantGuard</span>
+        <span class="path" id="path"></span>
+        <span class="spacer"></span>
+        <button id="rerun" class="btn icon" title="Re-run audit" disabled>
+          <span class="glyph">↻</span> Re-run
+        </button>
+      </header>
+
+      <!-- loading -->
+      <section id="scan" class="scan">
+        <div class="spinner"></div>
+        <p id="scanline">Scanning for settings files…</p>
+        <div class="progress"><div class="bar" id="bar"></div></div>
+      </section>
+
+      <!-- main app: sidebar always visible -->
+      <div id="content" class="content hidden">
+        <aside class="sidebar">
+          <gg-nav id="nav"></gg-nav>
+          <gg-scope id="scope"></gg-scope>
+          <div class="sidebar-foot">
+            <div class="vanta">
+              <span>Built by</span>
+              <img
+                src="/vanta-logo.png"
+                alt="Vanta"
+                class="vanta-logo light-only"
+                onerror="this.remove()"
+              />
+              <img
+                src="/vanta-logo-dark.png"
+                alt="Vanta"
+                class="vanta-logo dark-only"
+                onerror="this.remove()"
+              />
+            </div>
+            <div class="platform" id="platform"></div>
+          </div>
+        </aside>
+
+        <main class="detail">
+          <gg-overview id="overview" class="ov-pane hidden"></gg-overview>
+          <gg-list-pane id="listPane" class="hidden"></gg-list-pane>
+        </main>
+      </div>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
