@@ -12,6 +12,8 @@ on:
     - cron: '30 1 * * 1'
   push:
     branches: [ "main" ]
+  # Allow manual runs from the Actions tab / `gh workflow run`.
+  workflow_dispatch:
 # Declare default permissions as read only.
 permissions: read-all
 jobs:
