@@ -54,7 +54,7 @@ versions of Chrome, Edge, Firefox, and Safari.
 
 1. Clone this repo
    ```bash
-   git clone https://github.com/VantaInc/grantguard.git
+   git clone https://github.com/OpenVanta/grantguard.git
    ```
 
 2. Run the web UI
