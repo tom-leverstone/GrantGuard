@@ -7,5 +7,6 @@ requires-python = ">=3.10"
 license = { text = "MIT" }
 dependencies = []
 
-[tool.uv]
-package = false
+[project.scripts]
+grantguard = "grantguard._entry:main"
+

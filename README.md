@@ -41,8 +41,7 @@ or CDN-hosted scripts.
 
 ### Requirements
 
-- [`uv`](https://docs.astral.sh/uv) - a Python package and project manager, a modern best-in-class standard for python projects. GrantGuard uses `uv run` as its supported launch path, allowing consistent and convenient execution across MacOS, Linux, and Windows. 
-- `git` - for cloning this repo
+- [`uv`](https://docs.astral.sh/uv) - a Python package and project manager, a modern best-in-class standard for python projects.
 - A supported browser for the Web UI
 
 GrantGuard uses browser-native HTML/CSS/JS and is intended for current stable
@@ -52,15 +51,14 @@ versions of Chrome, Edge, Firefox, and Safari.
 
 0. If you haven't already, [install `uv`](https://github.com/astral-sh/uv#installation).
 
-1. Clone this repo
+1. Run GrantGuard directly
    ```bash
-   git clone https://github.com/OpenVanta/grantguard.git
+   uvx --from git+https://github.com/OpenVanta/GrantGuard grantguard
    ```
 
-2. Run the web UI
+That opens the web UI. You can also run the CLI audit the same way:
    ```bash
-   cd grantguard
-   uv run grantguard.py
+   uvx --from git+https://github.com/OpenVanta/GrantGuard grantguard audit
    ```
 
 By default, GrantGuard reviews user-level Claude settings sources only. It does
@@ -72,8 +70,8 @@ project directories unless you ask it to.
 ### Synopsis
 
 ```bash
-uv run grantguard.py ui [TARGET ...] [--targets PATH] [--scan | --deep-scan] [--tolerance default|permissive] [--port PORT] [--no-open]
-uv run grantguard.py audit [TARGET ...] [--targets PATH] [--scan | --deep-scan] [--tolerance default|permissive] [--show-safe] [--fix]
+grantguard ui [TARGET ...] [--targets PATH] [--scan | --deep-scan] [--tolerance default|permissive] [--port PORT] [--no-open]
+grantguard audit [TARGET ...] [--targets PATH] [--scan | --deep-scan] [--tolerance default|permissive] [--show-safe] [--fix]
 ```
 
 ### Defaults
@@ -89,7 +87,7 @@ An empty selection is a successful empty audit. GrantGuard prints that no Claude
 settings sources were found and exits `0`.
 
 ```bash
-uv run grantguard.py audit
+grantguard audit
 ```
 
 ### Targets And Scans
@@ -98,31 +96,31 @@ Targets may be passed positionally or with repeatable `--targets PATH`; both
 forms behave identically.
 
 ```bash
-uv run grantguard.py audit /path/to/repo
-uv run grantguard.py audit --targets /path/to/repo
-uv run grantguard.py audit --targets /repo/a --targets /repo/b
+grantguard audit /path/to/repo
+grantguard audit --targets /path/to/repo
+grantguard audit --targets /repo/a --targets /repo/b
 ```
 
 Use `--scan` to shallowly discover `.claude/settings*.json` below one or more
 target roots:
 
 ```bash
-uv run grantguard.py audit --scan --targets /path/to/workspace
+grantguard audit --scan --targets /path/to/workspace
 ```
 
 Use `--deep-scan` for deeper discovery under target roots, or without targets
 for broad discovery:
 
 ```bash
-uv run grantguard.py audit --deep-scan --targets /path/to/workspace
-uv run grantguard.py audit --deep-scan
+grantguard audit --deep-scan --targets /path/to/workspace
+grantguard audit --deep-scan
 ```
 
 ### Tolerance
 
 ```bash
-uv run grantguard.py audit --tolerance default
-uv run grantguard.py audit --tolerance permissive
+grantguard audit --tolerance default
+grantguard audit --tolerance permissive
 ```
 
 `default` flags high-risk findings and overbroad wildcard rules. `permissive`
@@ -133,8 +131,8 @@ keeps overbroad wildcard rules and flags only higher-risk findings.
 `audit` is read-only unless `--fix` is present.
 
 ```bash
-uv run grantguard.py audit --fix
-uv run grantguard.py audit --tolerance permissive --fix
+grantguard audit --fix
+grantguard audit --tolerance permissive --fix
 ```
 
 `audit --fix` writes to editable Claude settings files in scope and removes all
